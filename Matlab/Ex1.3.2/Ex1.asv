@@ -1,4 +1,5 @@
 close all
+axis equal tight
 %Улитка Паскаля
 t = 1:600;
 t = t*pi/180;
@@ -7,6 +8,7 @@ h = 100;
 x = (2*R).*cos(t)-h.*cos(2*t);
 y = (2*R).*sin(t)-h.*sin(2*t);
 plot(y,x)
+title('Улитка Паскаля');
 
 %Фигуры Лиссажу
 A = 100;
@@ -21,8 +23,10 @@ t = t*pi/180;
 f = f*pi/180;
 x = A.*sin(a*t+f);
 y = B.*sin(b*t);
+axis equal tight
 figure
 plot(x,y)
+title('Фигуры Лиссажу');
 
 %трохойда
 r = 40;
@@ -33,6 +37,7 @@ x = r*t - h*sin(t);
 y = r - h * cos(t);
 figure
 plot(x,y)
+title('Трохойда');
 
 %Гипоциклойда
 R = 6;
@@ -44,6 +49,7 @@ x = r*(k - 1)*(cos(t)+cos((k-1)*t)/(k-1));
 y = r*(k - 1)*(sin(t)- sin((k-1)*t)/(k-1));
 figure
 plot(x,y)
+title('Гипоциклойда');
 
 %Гипотрохиойда
 R = 6;
@@ -55,6 +61,7 @@ x = (R-r)*cos(f)+h*cos((R-r)/r*f);
 y = (R-r)*sin(f)+h*sin((R-r)/r*f);
 figure
 plot(x,y)
+title('Гипотрохиойда');
 
 %Эпициклойда
 R = 6;
@@ -66,10 +73,34 @@ x = (R+r)*cos(f)-r*cos(a+(R+r)/r*f);
 y = (R+r)*sin(f)-r*sin(a+(R+r)/r*f);
 figure
 plot(x,y)
+title('Эпициклойда');
 
-%Задача 3
+%Гипотрохиойда
+R = 6;
+r = 1;
+f = 1:1000;
+f = f *pi/180;
+h= 10;
+x = (R-r)*cos(f)+h*cos((R-r)/r*f);
+y = (R-r)*sin(f)+h*sin((R-r)/r*f);
+figure
+plot(x,y)
+title('Гипотрохиойда');
 
-%Исходные данные
+%Эпициклойда
+R = 6;
+r = 1;
+f = 1:360;
+f = f *pi/180;
+a = 10;
+x = (R+r)*cos(f)-r*cos(a+(R+r)/r*f);
+y = (R+r)*sin(f)-r*sin(a+(R+r)/r*f);
+figure
+plot(x,y)
+title('Эпициклойда');
+
+%Задача 3 
+%сходные данные
 k1 = 10;
 k2 = -2;
 k3 = -5;
@@ -77,21 +108,45 @@ T1 = 10;
 T2 = 6;
 T3 = 8;
 
-
-
 %Уравнения
+%Этап 1
+dt1 = 0:T1;
+V1 = k1*dt1;
+t1 = 0 + dt1;
+figure
+plot(t1,V1)
+title(' график для 1 этапа задачи');
 
-dt1 = 1:T1;
-V1 = k1*dt;
+%Этап 2
+dt2 = 1:T2;
+V2 = k1*T1 + k2*dt2;
+t2 = T1 + dt2;
+figure
+plot(t2,V2)
+title(' график для 2 этапа задачи');
 
-dt2 = T1 + 1:T2;
-V2 = k2*dt2;
+%Этап 3
+dt3 = 1:T3;
+V3 = k1*T1 + k2*T2 + k3*dt3;
+t3 =  T1 + T2 + dt3;
+figure
+plot(t3,V3)
+title(' график для 3 этапа задачи');
 
-dt3 = T2 + 1:T3;
-V2 = k3*dt3;
+%Общий график
+dt = 0:T1 + T2 + T3;
+v = [V1 V2 V3];
+figure
+plot(dt,v)
+title('Общий график для задачи');
 
-V = V1+v
-plot(V,dt)
+
+
+
+
+
+
+
 
 
 
