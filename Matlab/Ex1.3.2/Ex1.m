@@ -4,8 +4,8 @@ t = 1:600;
 t = t*pi/180;
 R = 50;
 h = 100;
-x = (2*R).*cos(t)-h.*cos(2*t);
-y = (2*R).*sin(t)-h.*sin(2*t);
+x = (2*R).* cos(t)-h.* cos(2*t);
+y = (2*R).* sin(t)-h.* sin(2*t);
 plot(y,x)
 axis equal tight
 title('Улитка Паскаля');
