@@ -1,8 +1,0 @@
-t = 0:2/pi;
-rt = t *pi/180;
-a = 1;
-x = a * tan(rf);
-y = a * cos(rf).^ 2;
-figure
-plot(x,y)
-title('Верзьера Аньези');
