@@ -1,0 +1,10 @@
+<robot name="myfirst robot">
+	<link name="">
+		<visual>
+			<origin xyz="" rpy=""/>
+			<geometry>
+				<box size=""/>
+			</geometry>
+		</visual>
+	</link>
+</robot>
